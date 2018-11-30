@@ -59,7 +59,6 @@ extern "C" {
             JNIEnv *env,
             jobject /* this */) {
         FUN_UnInitNetSDK();
-        FUN_UnInit(LOGIN_TYPE_MOBILE);
     }
 
     JNIEXPORT void JNICALL Java_com_example_hws_netsdkdemo_MainActivity_devLogin(
