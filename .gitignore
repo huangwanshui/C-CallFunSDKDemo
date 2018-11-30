@@ -1,0 +1,11 @@
+
+app/.*
+app/app.iml
+.DS_Store
+build/*
+NetSDKDemo.iml
+*.properties
+gradlew.bat
+gradlew
+gradle/wrapper/gradle-wrapper.jar
+app/proguard-rules.pro
