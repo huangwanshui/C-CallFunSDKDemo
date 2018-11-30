@@ -23,7 +23,7 @@ int callbackId = 2;
 int playHandle;
 char* devId;
 int callback(int hSender, UI_HANDLE hWnd, int nId, int nParam1, int nParam2, int nParam3, const char *szParam, const void *pData, int nDataLen, int nSeq) {
-    LOGD("nID:%d nParam1:%d nParam2:%d nParam3:%d",nId,nParam1,nParam2,nParam3);
+    LOGD("hSender：%d,hWnd：%d,nID:%d nParam1:%d nParam2:%d nParam3:%d",hSender,hWnd,nId,nParam1,nParam2,nParam3);
     if (nId == 5139 && nParam1 >= 0) {
 //        FUN_DevGetConfigJson(callbackId,"3614e52e8cdf727b","SystemInfo",-1,0,0);
     }else if (nId == 5128 && nParam1 >= 0 && pData != NULL) {
@@ -103,6 +103,7 @@ extern "C" {
         findinfo.endTime.dwSecond = 59;
         findinfo.nChannelN0 = 0;
         findinfo.StreamType = 0;
+        findinfo.nFileType = 0;
         FUN_DevFindFile(callbackId,devId,&findinfo,64);
     }
 
@@ -124,6 +125,7 @@ extern "C" {
         findinfo.endTime.dwSecond = 59;
         findinfo.nChannelN0 = 0;
         findinfo.StreamType = 0;
+        findinfo.nFileType = 0;
         playHandle = FUN_MediaNetRecordPlayByTime(callbackId,devId,&findinfo,NULL,NULL,0);
         if (playHandle != 0) {
             FUN_SetIntAttr(playHandle,EOA_SET_MEDIA_DATA_USER_AND_NO_DEC,1);
