@@ -50,7 +50,8 @@ extern "C" {
         FUN_InitNetSDK();
         devId = new char[32];
         memset(devId,0,32);
-        strcpy(devId,"51ff5bab400041fc");
+        //06f7101abef58d8e
+        strcpy(devId,"84d8283ad3f96758");
 
         Fun_InitMsgCallBack(&callback);
     }
@@ -64,7 +65,7 @@ extern "C" {
     JNIEXPORT void JNICALL Java_com_example_hws_netsdkdemo_MainActivity_devLogin(
             JNIEnv *env,
             jobject /* this */) {
-        FUN_DevLogin(callbackId,devId,"admin","",0);
+        FUN_DevLogin(callbackId,devId,"admin","q",0);
     }
 
     JNIEXPORT void JNICALL Java_com_example_hws_netsdkdemo_MainActivity_devLogout(
@@ -126,7 +127,7 @@ extern "C" {
         findinfo.nChannelN0 = 0;
         findinfo.StreamType = 0;
         findinfo.nFileType = 0;
-        playHandle = FUN_MediaNetRecordPlayByTime(callbackId,devId,&findinfo,NULL,NULL,0);
+        playHandle = FUN_MediaNetRecordPlayByTime(callbackId,devId,&findinfo,(void*)1,NULL,0);
         if (playHandle != 0) {
             FUN_SetIntAttr(playHandle,EOA_SET_MEDIA_DATA_USER_AND_NO_DEC,1);
         }
